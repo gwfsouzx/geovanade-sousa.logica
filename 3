@@ -1,0 +1,21 @@
+class contabancaria:
+    def __init__(self, titular, saldo=0):
+        self.titular = titular
+        self._saldo = saldo
+    def depositar(self, valor):
+        self._saldo += valor
+    def sacar(self, valor):
+        if valor <= self._saldo:
+            self._saldo -= valor
+                        
+        else:
+            print("saldo insuficiente")
+    def exibir_saldo(self):
+        print(f"saldo: {self._saldo}")
+        
+#teste
+conta = contabancaria("joao", 100)
+conta.depositar(50)
+conta.sacar(30)
+conta.exibir_saldo()
+conta.sacar(150) # deve exibir "saldo insuficiente"
